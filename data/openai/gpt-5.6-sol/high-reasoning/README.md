@@ -17,7 +17,7 @@ This collection targets `gpt-5.6-sol` with `reasoning_effort=high`.
 - Responses recorded: 1,620 of 1,620.
 - Validation errors: 0.
 
-Run `node scripts/validate-gpt-5.6-sol-collection.mjs` from the repository root to recheck prompt fidelity, metadata, condition coverage, and non-empty responses.
+Run `node scripts/validate-gpt-5.6-sol-collection.mjs high` from the repository root to recheck prompt fidelity, metadata, condition coverage, and non-empty responses.
 
 ## Record Layout
 

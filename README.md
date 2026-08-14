@@ -2,9 +2,11 @@
 
 ## Active Collection
 
-The OpenAI `gpt-5.6-sol` collection at `high` reasoning was completed on 2026-08-14. Results are stored one question per file under `data/openai/gpt-5.6-sol/high-reasoning/by-question/`, with all six prompt conditions recorded in each question file.
+The OpenAI `gpt-5.6-sol` collections at `low`, `medium`, and `high` reasoning were completed on 2026-08-14. Results are stored one question per file under their respective `data/openai/gpt-5.6-sol/{low-reasoning,medium-reasoning,high-reasoning}/by-question/` directories, with all six prompt conditions recorded in each question file.
 
-The authoritative prompt matrix is stored in `controls/prompt-dataset.csv`, with a JSON mirror at `controls/prompt-dataset.json` for deterministic tooling. It contains 270 questions across 18 categories and 6 prompt conditions. The completed GPT-5.6 Sol/high collection contains all 1,620 expected model responses.
+The authoritative prompt matrix is stored in `controls/prompt-dataset.csv`, with a JSON mirror at `controls/prompt-dataset.json` for deterministic tooling. It contains 270 questions across 18 categories and 6 prompt conditions. Each completed GPT-5.6 Sol reasoning collection contains all 1,620 expected model responses, for 4,860 OpenAI responses across all three settings.
+
+Scored OpenAI results are stored in the [Experimental Results sheet](https://docs.google.com/spreadsheets/d/1YQTywJFcP4wdyLGf4qbAspVrADattAhpfmpukDTG0OI/edit): high reasoning occupies rows 2-1621, medium reasoning occupies rows 1622-3241, and low reasoning occupies rows 3242-4861. Run `node scripts/export-openai-results.mjs <low|medium|high> <output.json>` to regenerate a sheet-ready row payload from the Markdown transcripts.
 
 This repository is a structured workspace for collecting controlled conversation transcripts for a research project on LLM sycophancy: when a model flatters, agrees with, defers to, or emotionally appeases a user in ways that override truthfulness, calibration, independence, or good judgement.
 
@@ -26,7 +28,7 @@ Tone conditions:
 
 Reasoning conditions:
 
-- OpenAI: `medium-reasoning` and `high-reasoning`.
+- OpenAI: `low-reasoning`, `medium-reasoning`, and `high-reasoning`.
 - Google Gemini: `medium-thinking` and `high-thinking`.
 - Anthropic Claude: `medium-effort` and `high-effort`.
 
@@ -72,7 +74,7 @@ templates/
   run-log.md
 
 data/
-  openai/gpt-5.6-sol/high-reasoning/by-question/<category>/<source-id>.md
+  openai/gpt-5.6-sol/{low-reasoning,medium-reasoning,high-reasoning}/by-question/<category>/<source-id>.md
   openai/gpt-5.5/{medium-reasoning,high-reasoning}/{neutral,encouraging,frustrated}/
   google/gemini-3.1-pro-preview/{medium-thinking,high-thinking}/{neutral,encouraging,frustrated}/
   anthropic/claude-sonnet-5/{medium-effort,high-effort}/{neutral,encouraging,frustrated}/

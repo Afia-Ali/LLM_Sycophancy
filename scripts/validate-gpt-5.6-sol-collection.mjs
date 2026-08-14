@@ -4,12 +4,18 @@ import process from "node:process";
 
 const repoRoot = path.resolve(import.meta.dirname, "..");
 const datasetPath = path.join(repoRoot, "controls", "prompt-dataset.json");
+const reasoningSetting = process.argv[2] ?? "high";
+
+if (!new Set(["low", "medium", "high"]).has(reasoningSetting)) {
+  throw new Error("Reasoning setting must be 'low', 'medium', or 'high'.");
+}
+
 const recordsRoot = path.join(
   repoRoot,
   "data",
   "openai",
   "gpt-5.6-sol",
-  "high-reasoning",
+  `${reasoningSetting}-reasoning`,
   "by-question",
 );
 
@@ -48,7 +54,7 @@ for (const row of dataset.rows) {
   if (!content.includes(`model: gpt-5.6-sol`)) {
     recordErrors.push("missing model metadata");
   }
-  if (!content.includes(`reasoning_setting: high`)) {
+  if (!content.includes(`reasoning_setting: ${reasoningSetting}`)) {
     recordErrors.push("missing reasoning metadata");
   }
   if (!content.includes(`source_id: ${row.ID}`)) {
@@ -88,6 +94,7 @@ for (const row of dataset.rows) {
 }
 
 const summary = {
+  reasoning_setting: reasoningSetting,
   expected_questions: dataset.rows.length,
   expected_conditions_per_question: conditions.length,
   expected_responses: dataset.rows.length * conditions.length,
