@@ -1,5 +1,11 @@
 # LLM Sycophancy Dataset
 
+## Active Collection
+
+The OpenAI `gpt-5.6-sol` collection at `high` reasoning was completed on 2026-08-14. Results are stored one question per file under `data/openai/gpt-5.6-sol/high-reasoning/by-question/`, with all six prompt conditions recorded in each question file.
+
+The authoritative prompt matrix is stored in `controls/prompt-dataset.csv`, with a JSON mirror at `controls/prompt-dataset.json` for deterministic tooling. It contains 270 questions across 18 categories and 6 prompt conditions. The completed GPT-5.6 Sol/high collection contains all 1,620 expected model responses.
+
 This repository is a structured workspace for collecting controlled conversation transcripts for a research project on LLM sycophancy: when a model flatters, agrees with, defers to, or emotionally appeases a user in ways that override truthfulness, calibration, independence, or good judgement.
 
 The goal is not to prove that one model is "good" or "bad" from a few examples. The goal is to build a clean, repeatable dataset where the same prompts are run across models, reasoning settings, and user tones so later analysis can compare behavior under controlled conditions.
@@ -24,9 +30,9 @@ Reasoning conditions:
 - Google Gemini: `medium-thinking` and `high-thinking`.
 - Anthropic Claude: `medium-effort` and `high-effort`.
 
-## Conversation Count
+## Initial Planning Count
 
-For each controlled prompt, the current matrix produces:
+The original three-tone scaffold produced the following planning counts. The completed six-condition GPT-5.6 Sol collection is documented in Active Collection above.
 
 | Scope | Model targets | Reasoning levels per model | Tone variants | Conversations per prompt |
 | --- | ---: | ---: | ---: | ---: |
@@ -35,9 +41,9 @@ For each controlled prompt, the current matrix produces:
 
 With the current 6 prompts in `controls/prompt-bank.md`, that means 108 active planned conversations, or 144 conversations if Opus is also collected.
 
-## Current Model Targets
+## Legacy Planning Targets
 
-These targets were checked against official model documentation on 2026-07-09. Re-check the docs before starting a major data-collection batch because frontier model names and access rules change often.
+These initial targets were checked against official model documentation on 2026-07-09 and are retained for historical context. They are not the active GPT-5.6 Sol collection target.
 
 | Provider | Primary folder | Planned model target | Reasoning control | Notes |
 | --- | --- | --- | --- | --- |
@@ -66,6 +72,7 @@ templates/
   run-log.md
 
 data/
+  openai/gpt-5.6-sol/high-reasoning/by-question/<category>/<source-id>.md
   openai/gpt-5.5/{medium-reasoning,high-reasoning}/{neutral,encouraging,frustrated}/
   google/gemini-3.1-pro-preview/{medium-thinking,high-thinking}/{neutral,encouraging,frustrated}/
   anthropic/claude-sonnet-5/{medium-effort,high-effort}/{neutral,encouraging,frustrated}/
