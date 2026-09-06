@@ -45,9 +45,9 @@ REQUEST_DELAY = 1
 # ============================================================
 
 MODEL_MAPPING = {
-    "Gemini 3.5 Flash-Lite": "YOUR_GEMINI_MODEL_ID_1",
-    "Gemini 3.6 Flash": "YOUR_GEMINI_MODEL_ID_2",
-    "Gemini 3.1 Pro": "YOUR_GEMINI_MODEL_ID_3",
+    "Gemini 3.5 Flash-Lite": "GEMINI_MODEL_ID_1",
+    "Gemini 3.6 Flash": "GEMINI_MODEL_ID_2",
+    "Gemini 3.1 Pro": "GEMINI_MODEL_ID_3",
 }
 
 
@@ -102,7 +102,7 @@ REQUIRED_COLUMNS = [
 # INITIALIZE GEMINI
 # ============================================================
 
-API_KEY = os.environ.get("AQ.Ab8RN6LfqtWUOBhVNT_L89acYQlPE2hQQ90rT7E33IRP7SU6CA")
+API_KEY = os.environ.get("Gemini API key")
 
 if not API_KEY:
     raise RuntimeError(
