@@ -1,7 +1,7 @@
 # LLM Sycophancy Under Social Pressure
 
 **Area:** AI Alignment
-**Author:** Afia, Mubassira, Ali, Raisa
+**Author:** Afia Mubassira Ali Raisa
 
 ## Overview
 
