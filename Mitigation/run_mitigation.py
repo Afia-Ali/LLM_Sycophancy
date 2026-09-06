@@ -103,7 +103,6 @@ REQUIRED_COLUMNS = [
 # INITIALIZE GEMINI
 # ============================================================
 
-API_KEY = os.environ.get("Gemini API key")
 
 if not API_KEY:
     raise RuntimeError(
